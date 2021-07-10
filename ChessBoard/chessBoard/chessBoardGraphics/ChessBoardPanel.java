@@ -66,22 +66,18 @@ public class ChessBoardPanel extends JPanel {
 		}
 	}
 	
-	
-	
-	private boolean isWhite(int x, int y) {
-		return ((x+y)%2==0) == isTopLeftWhite;
-	}
-	private void drawTile(Graphics2D g2, int x, int y, boolean isWhite) {
-		if(isWhite) g2.setColor(Color.WHITE);
-		else g2.setColor(Color.BLACK);
-		g2.fillRect(x, y, w, h);
-	}
+	private boolean isWhite(int x, int y) { return ((x+y)%2==0) == isTopLeftWhite; }
 	
 	private void drawHorse(Graphics2D g2, int x, int y, boolean isWhite) {
 		if(isWhite) g2.drawImage(horse, x, y, this);
 		else g2.drawImage(invertedHorse, x, y, this);
 	}
 	
-	private Color getColor(boolean c) { return c ? Color.WHITE : Color.BLACK; }
+	private void drawTile(Graphics2D g2, int x, int y, boolean isWhite) {
+		g2.setColor(getColor(isWhite));
+		g2.fillRect(x, y, w, h);
+	}
+	
+	private Color getColor(boolean isWhite) { return isWhite ? Color.WHITE : Color.BLACK; }
 	
 }
