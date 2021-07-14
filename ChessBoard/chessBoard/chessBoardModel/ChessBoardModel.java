@@ -20,7 +20,7 @@ public class ChessBoardModel {
 	
 	public void clearAll() {
 		for (int w = 0; w < hasKnight.length; w++) {
-			for (int h = 0; h < hasKnight[w].length; h++) {
+			for (int h = 0; h < hasKnight[0].length; h++) {
 				hasKnight[w][h] = false;
 			}
 		}
@@ -32,9 +32,11 @@ public class ChessBoardModel {
 		
 		for (int x = 0; x < hasKnight.length; x++) {
 			for (int y = 0; y < hasKnight[0].length; y++) {
-				LinkedList<Tile> boundedMoves = getBoundedKnightMoves(x, y);
-				for (Tile tile : boundedMoves) {
-					if (hasKnight[tile.getX()][tile.getY()]) hits.add(new Hit(new Tile(x, y), tile));
+				if(hasKnight[x][y]) {
+					LinkedList<Tile> boundedMoves = getBoundedKnightMoves(x, y);
+					for (Tile tile : boundedMoves) {
+						if (hasKnight[tile.getX()][tile.getY()]) hits.add(new Hit(new Tile(x, y), tile));
+					}
 				}
 			}
 		}

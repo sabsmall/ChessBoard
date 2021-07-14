@@ -12,3 +12,6 @@
 /ChessBoard/chessBoard/chessBoardGraphics/knight.png
 -horse>knight
 
+#210714-002
+/ChessBoard/chessBoard/chessBoardModel/ChessBoardModel.java
+-bugfix: hits() didnt check if x,y has knight
