@@ -18,15 +18,15 @@ public class ChessBoardPanel extends JPanel {
 	private ChessBoardModel model;
 	
 
-	public BufferedImage getHorse () { return horse; }
-	public void          setHorse (BufferedImage horse) {
-		this.horse = ImageUtil.convertToManaged(horse);
-		invertedHorse = ImageUtil.invertImageColors(horse);
-		w = horse.getWidth();
-		h = horse.getHeight();
+	public BufferedImage getknight () { return knight; }
+	public void          setKnight (BufferedImage knight) {
+		this.knight = ImageUtil.convertToManaged(knight);
+		invertedKnight = ImageUtil.invertImageColors(knight);
+		w = knight.getWidth();
+		h = knight.getHeight();
 	}
-	private BufferedImage horse;
-	private BufferedImage invertedHorse;
+	private BufferedImage knight;
+	private BufferedImage invertedKnight;
 	private int w, h;
 	
 	
@@ -40,14 +40,14 @@ public class ChessBoardPanel extends JPanel {
 	private boolean isTopLeftWhite;
 	
 	
-	public ChessBoardPanel(ChessBoardModel model, BufferedImage horse, boolean isTopLeftWhite) {
+	public ChessBoardPanel(ChessBoardModel model, BufferedImage knight, boolean isTopLeftWhite) {
 		
 		setModel(model);
-		setHorse(horse);
+		setKnight(knight);
 		
 		setPreferredSize ( new Dimension (
-										model.getColumns() * horse.getWidth (),
-										model.getRows   () * horse.getHeight()    ) );
+										model.getColumns() * knight.getWidth (),
+										model.getRows   () * knight.getHeight()    ) );
 		
 		setTopLeftWhite(isTopLeftWhite);
 
@@ -60,7 +60,7 @@ public class ChessBoardPanel extends JPanel {
 		
 		for (int y = 0; y < model.getRows(); y++) {
 			for (int x = 0; x < model.getColumns(); x++) {
-				if (model.is(x, y)) drawHorse(g2, x*w, y*h, isWhite(x,y));
+				if (model.is(x, y)) drawKnight(g2, x*w, y*h, isWhite(x,y));
 				else drawTile(g2, x*w, y*h, isWhite(x,y));
 			}
 		}
@@ -68,9 +68,9 @@ public class ChessBoardPanel extends JPanel {
 	
 	private boolean isWhite(int x, int y) { return ((x+y)%2==0) == isTopLeftWhite; }
 	
-	private void drawHorse(Graphics2D g2, int x, int y, boolean isWhite) {
-		if(isWhite) g2.drawImage(horse, x, y, this);
-		else g2.drawImage(invertedHorse, x, y, this);
+	private void drawKnight(Graphics2D g2, int x, int y, boolean isWhite) {
+		if(isWhite) g2.drawImage(knight, x, y, this);
+		else g2.drawImage(invertedKnight, x, y, this);
 	}
 	
 	private void drawTile(Graphics2D g2, int x, int y, boolean isWhite) {

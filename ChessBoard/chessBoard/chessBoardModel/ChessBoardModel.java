@@ -2,25 +2,26 @@ package chessBoardModel;
 
 import java.util.LinkedList;
 
+// TODO: Separate out interfaces for view and controller access
 public class ChessBoardModel {
 	
-	private boolean[][] hasHorse;
-	public int  getColumns () { return hasHorse[0].length; }
-	public int  getRows    () { return hasHorse   .length; }
+	private boolean[][] hasKnight;
+	public int  getColumns () { return hasKnight[0].length; }
+	public int  getRows    () { return hasKnight   .length; }
 	
-	public void    set   (int x, int y) { hasHorse[x][y] = true ; }
-	public void    clear (int x, int y) { hasHorse[x][y] = false; }
-	public boolean is    (int x, int y) { return hasHorse[x][y];  }
+	public void    set   (int x, int y) { hasKnight[x][y] = true ; }
+	public void    clear (int x, int y) { hasKnight[x][y] = false; }
+	public boolean is    (int x, int y) { return hasKnight[x][y];  }
 	
 	public ChessBoardModel(int width, int height) {
-		hasHorse = new boolean[width][height];
+		hasKnight = new boolean[width][height];
 		clearAll();
 	}
 	
 	public void clearAll() {
-		for (int w = 0; w < hasHorse.length; w++) {
-			for (int h = 0; h < hasHorse[w].length; h++) {
-				hasHorse[w][h] = false;
+		for (int w = 0; w < hasKnight.length; w++) {
+			for (int h = 0; h < hasKnight[w].length; h++) {
+				hasKnight[w][h] = false;
 			}
 		}
 	}
@@ -29,18 +30,18 @@ public class ChessBoardModel {
 		
 		LinkedList<Hit> hits = new LinkedList<Hit>();
 		
-		for (int x = 0; x < hasHorse.length; x++) {
-			for (int y = 0; y < hasHorse[0].length; y++) {
-				LinkedList<Tile> boundedMoves = getBoundedHorseMoves(x, y);
+		for (int x = 0; x < hasKnight.length; x++) {
+			for (int y = 0; y < hasKnight[0].length; y++) {
+				LinkedList<Tile> boundedMoves = getBoundedKnightMoves(x, y);
 				for (Tile tile : boundedMoves) {
-					if (hasHorse[tile.getX()][tile.getY()]) hits.add(new Hit(new Tile(x, y), tile));
+					if (hasKnight[tile.getX()][tile.getY()]) hits.add(new Hit(new Tile(x, y), tile));
 				}
 			}
 		}
 		return hits;
 	}
 	
-	private LinkedList<Tile> getBoundedHorseMoves(int x, int y) {
+	private LinkedList<Tile> getBoundedKnightMoves(int x, int y) {
 		
 		LinkedList<Tile> boundedMoves = new LinkedList<Tile>();
 		

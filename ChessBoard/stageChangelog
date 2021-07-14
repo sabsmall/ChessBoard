@@ -1,0 +1,14 @@
+#210714-001
+
+/ChessBoard/stageChangelog
+-added stageChangelog
+
+/ChessBoard/TODO
+-added TODO list
+
+/ChessBoard/chessBoard/runner/Runner.java
+/ChessBoard/chessBoard/chessBoardModel/ChessBoardModel.java
+/ChessBoard/chessBoard/chessBoardGraphics/ChessBoardPanel.java
+/ChessBoard/chessBoard/chessBoardGraphics/knight.png
+-horse>knight
+

@@ -22,9 +22,10 @@ public class Runner {
 		
 		ChessBoardModel model = new ChessBoardModel(4, 4);
 		
-		BufferedImage horse = ImageIO.read(new File("chessBoard/chessBoardGraphics/horse.png"));
+		// TODO: Either this line belongs to pGraphics or the image file belongs to pRunner 
+		BufferedImage knight = ImageIO.read(new File("chessBoard/chessBoardGraphics/knight.png"));
 
-		ChessBoardPanel panel = new ChessBoardPanel(model, horse, ChessBoardPanel.TOP_LEFT_WHITE);
+		ChessBoardPanel panel = new ChessBoardPanel(model, knight, ChessBoardPanel.TOP_LEFT_WHITE);
 		
 		manageModel(model);
 		

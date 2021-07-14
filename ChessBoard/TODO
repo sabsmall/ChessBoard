@@ -1,0 +1,5 @@
+/ChessBoard/chessBoard/runner/Runner.java
+-Either this line belongs to pGraphics or the image file belongs to pRunner
+
+/ChessBoard/chessBoard/chessBoardModel/ChessBoardModel.java
+Separate out interfaces for view and controller access
